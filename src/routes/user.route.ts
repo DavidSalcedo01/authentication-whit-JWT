@@ -10,6 +10,7 @@ router.post('/', async (req, res, next) => {
   try {
     //TODO: Validate user data coming from the request
     const user: User = req.body
+    //delete user.password
     const newUser = await service.create(user)
     res.status(201).json({ user: newUser.toClient() })
   } catch (error) {
@@ -21,9 +22,16 @@ router.get('/', async (req, res, next) => {
   try {
     const { email } = req.query
     const user = await service.findByEmail(email as string)
-    console.log({ user })
+    const secureUser = {
+      name: user.name,
+      email: user.email,
+      address: user.address,
+      phoneNumber: user.phoneNumber
+    };
 
-    res.status(200).json({ user })
+    //console.log({ user })
+
+    res.status(200).json({ secureUser })
   } catch (error) {
     next(error)
   }
