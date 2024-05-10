@@ -15,20 +15,20 @@ const Bicycles = new Schema<Bicycle, BicyclesModel>({
         trim: true
     },
     dimensions: {
-            type: Number,
-            required: true,
-            trim: true
+        type: Number,
+        required: true,
+        trim: true
     },
     weight: {
-            type: Number,
-            required: true,
-            trim: true
+        type: Number,
+        required: true,
+        trim: true
     },
     price: {
-            type: Number,
-            required: true,
-            trim: true
-        }
-    }) // Add closing parenthesis here
+        type: Number,
+        required: true,
+        trim: true
+    }
+})
 
 export default model('Bicycles', Bicycles)
