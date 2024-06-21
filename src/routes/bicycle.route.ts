@@ -8,7 +8,7 @@ const router = express.Router()
 const service = new BicycleService()
 
 router.post(
-  '/bicycle',
+  '/',
   passport.authenticate('jwt', { session: false }),
   async (req, res) => {
     const bicycle: Bicycle = req.body
@@ -19,7 +19,7 @@ router.post(
 )
 
 router.get(
-  '/bicycle',
+  '/',
   passport.authenticate('jwt', { session: false }),
   async (req: UserRequestType, res, next) => {
     try {
